@@ -50,6 +50,24 @@ DEFAULT_CONFIGURATION = \
 	--enable-experimental \
 	--enable-glvnd \
 	--enable-clicd
+
+# Enable Debugging
+#
+# Example:
+# export ENABLE_LIBHYBRIS_DEBUGGING=true
+# 
+# Used with the following runtime environment variables:
+# HYBRIS_LOGGING_LEVEL=debug 
+# HYBRIS_TRACE=1 
+# HYBRIS_TRACE_HOOKED=1 
+# HYBRIS_TRACE_UNHOOKED=1
+ifeq ($(ENABLE_LIBHYBRIS_DEBUGGING), true)
+DEFAULT_CONFIGURATION += \
+	--enable-debug \
+	--enable-trace
+
+endif
+
 ARCH_CONFIGURATION =
 
 ifeq ($(DEB_HOST_ARCH),$(findstring $(DEB_HOST_ARCH), armhf))
